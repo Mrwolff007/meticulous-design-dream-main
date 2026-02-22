@@ -1,0 +1,182 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e2]:
+  - region "Notifications (F8)":
+    - list
+  - region "Notifications alt+T"
+  - generic [ref=e3]:
+    - navigation [ref=e4]:
+      - generic [ref=e6]:
+        - link "KLK AUTO CAR" [ref=e7] [cursor=pointer]:
+          - /url: /
+          - img [ref=e8]
+          - generic [ref=e12]: KLK AUTO CAR
+        - generic [ref=e13]:
+          - link "Accueil" [ref=e14] [cursor=pointer]:
+            - /url: /
+          - link "Véhicules" [ref=e15] [cursor=pointer]:
+            - /url: /vehicules
+          - link "Réservation" [ref=e16] [cursor=pointer]:
+            - /url: /reservation
+          - link "À propos" [ref=e17] [cursor=pointer]:
+            - /url: /a-propos
+          - link "Contact" [ref=e18] [cursor=pointer]:
+            - /url: /contact
+          - link "Réserver" [ref=e19] [cursor=pointer]:
+            - /url: /reservation
+    - main [ref=e20]:
+      - generic [ref=e23]:
+        - heading "Réservez votre véhicule" [level=1] [ref=e25]
+        - generic [ref=e26]:
+          - button "Véhicule" [ref=e28] [cursor=pointer]:
+            - img [ref=e29]
+            - generic [ref=e33]: Véhicule
+          - button "Dates" [disabled] [ref=e36]:
+            - img [ref=e37]
+            - generic [ref=e39]: Dates
+          - button "Infos" [disabled] [ref=e42]:
+            - img [ref=e43]
+            - generic [ref=e46]: Infos
+          - button "Confirmer" [disabled] [ref=e49]:
+            - img [ref=e50]
+            - generic [ref=e53]: Confirmer
+        - generic [ref=e54]:
+          - generic [ref=e56]:
+            - generic [ref=e58] [cursor=pointer]:
+              - img "Dacia Logan" [ref=e59]
+              - button "Réservez ! 🚗" [ref=e62]
+              - generic [ref=e63]:
+                - heading "Dacia Logan" [level=3] [ref=e64]
+                - generic [ref=e65]:
+                  - generic [ref=e66]:
+                    - img [ref=e67]
+                    - text: Diesel
+                  - generic [ref=e70]:
+                    - img [ref=e71]
+                    - text: 5p
+                - generic [ref=e76]:
+                  - generic [ref=e77]: 20€/j
+                  - generic [ref=e78]: ✓ Sélectionné
+            - generic [ref=e80] [cursor=pointer]:
+              - img "Dacia Logan" [ref=e81]
+              - generic [ref=e82]:
+                - heading "Dacia Logan" [level=3] [ref=e83]
+                - generic [ref=e84]:
+                  - generic [ref=e85]:
+                    - img [ref=e86]
+                    - text: Diesel
+                  - generic [ref=e89]:
+                    - img [ref=e90]
+                    - text: 5p
+                - generic [ref=e96]: 20€/j
+            - generic [ref=e98] [cursor=pointer]:
+              - img "Peugeot 208" [ref=e99]
+              - generic [ref=e100]:
+                - heading "Peugeot 208" [level=3] [ref=e101]
+                - generic [ref=e102]:
+                  - generic [ref=e103]:
+                    - img [ref=e104]
+                    - text: Essence
+                  - generic [ref=e107]:
+                    - img [ref=e108]
+                    - text: 5p
+                - generic [ref=e114]: 30€/j
+            - generic [ref=e116] [cursor=pointer]:
+              - img "Peugeot 208" [ref=e117]
+              - generic [ref=e118]:
+                - heading "Peugeot 208" [level=3] [ref=e119]
+                - generic [ref=e120]:
+                  - generic [ref=e121]:
+                    - img [ref=e122]
+                    - text: Essence
+                  - generic [ref=e125]:
+                    - img [ref=e126]
+                    - text: 5p
+                - generic [ref=e132]: 30€/j
+            - generic [ref=e134] [cursor=pointer]:
+              - img "Renault Clio 5" [ref=e135]
+              - generic [ref=e136]:
+                - heading "Renault Clio 5" [level=3] [ref=e137]
+                - generic [ref=e138]:
+                  - generic [ref=e139]:
+                    - img [ref=e140]
+                    - text: Essence
+                  - generic [ref=e143]:
+                    - img [ref=e144]
+                    - text: 5p
+                - generic [ref=e150]: 25€/j
+            - generic [ref=e152] [cursor=pointer]:
+              - img "Renault Clio 5" [ref=e153]
+              - generic [ref=e154]:
+                - heading "Renault Clio 5" [level=3] [ref=e155]
+                - generic [ref=e156]:
+                  - generic [ref=e157]:
+                    - img [ref=e158]
+                    - text: Essence
+                  - generic [ref=e161]:
+                    - img [ref=e162]
+                    - text: 5p
+                - generic [ref=e168]: 25€/j
+            - generic [ref=e170] [cursor=pointer]:
+              - img "Renault Clio 5" [ref=e171]
+              - generic [ref=e172]:
+                - heading "Renault Clio 5" [level=3] [ref=e173]
+                - generic [ref=e174]:
+                  - generic [ref=e175]:
+                    - img [ref=e176]
+                    - text: Essence
+                  - generic [ref=e179]:
+                    - img [ref=e180]
+                    - text: 5p
+                - generic [ref=e186]: 25€/j
+          - generic [ref=e187]:
+            - button "Précédent" [disabled]:
+              - img
+              - generic: Précédent
+            - button "Suivant" [ref=e188] [cursor=pointer]:
+              - text: Suivant
+              - img
+    - contentinfo [ref=e189]:
+      - generic [ref=e190]:
+        - generic [ref=e191]:
+          - generic [ref=e192]:
+            - generic [ref=e193]:
+              - img [ref=e194]
+              - generic [ref=e198]: KLK AUTO CAR
+            - paragraph [ref=e199]: Location de voitures au Maroc. Service premium, prix compétitifs.
+          - generic [ref=e200]:
+            - heading "Navigation" [level=4] [ref=e201]
+            - generic [ref=e202]:
+              - link "Accueil" [ref=e203] [cursor=pointer]:
+                - /url: /
+              - link "Véhicules" [ref=e204] [cursor=pointer]:
+                - /url: /vehicules
+              - link "Réservation" [ref=e205] [cursor=pointer]:
+                - /url: /reservation
+              - link "Contact" [ref=e206] [cursor=pointer]:
+                - /url: /contact
+          - generic [ref=e207]:
+            - heading "Légal" [level=4] [ref=e208]
+            - generic [ref=e209]:
+              - link "À propos" [ref=e210] [cursor=pointer]:
+                - /url: /a-propos
+              - link "Conditions générales" [ref=e211] [cursor=pointer]:
+                - /url: /conditions
+          - generic [ref=e212]:
+            - heading "Suivez-nous" [level=4] [ref=e213]
+            - generic [ref=e214]:
+              - link [ref=e215] [cursor=pointer]:
+                - /url: "#"
+                - img [ref=e216]
+              - link [ref=e219] [cursor=pointer]:
+                - /url: "#"
+                - img [ref=e220]
+              - link [ref=e222] [cursor=pointer]:
+                - /url: "#"
+                - img [ref=e223]
+        - paragraph [ref=e227]: © 2026 KLK AUTO CAR. Tous droits réservés.
+    - link "Contacter via WhatsApp" [ref=e228] [cursor=pointer]:
+      - /url: https://wa.me/212619700592
+      - img [ref=e229]
+```
