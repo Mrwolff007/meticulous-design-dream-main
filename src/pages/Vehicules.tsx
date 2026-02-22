@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { motion } from "framer-motion";
-import { Fuel, Users, Setting2, ChevronRight, Filter } from "lucide-react";
+import { Fuel, Users, Settings2, ChevronRight, Filter } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import Layout from "@/components/Layout";
 
@@ -118,7 +118,7 @@ const Vehicules = () => {
                 variants={scaleUp}
                 whileHover={{ y: -8, transition: { duration: 0.3 } }}
               >
-                <Card className="group overflow-hidden border-border hover:border-accent/50 transition-all duration-300 hover:glow-accent">
+                <Card className="group overflow-hidden glass-card hover:border-accent/50 transition-all duration-300 hover:glow-accent">
                   <div className="aspect-video bg-secondary relative overflow-hidden">
                     <img
                       src={vehicle.image_url || "/placeholder.svg"}

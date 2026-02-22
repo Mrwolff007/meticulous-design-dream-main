@@ -12,6 +12,7 @@ import {
   X,
 } from "lucide-react";
 import { useState } from "react";
+import logo from "../../public/images/logoklkautocar.png";
 
 const navItems = [
   { label: "Dashboard", path: "/admin", icon: LayoutDashboard },
@@ -41,7 +42,7 @@ const AdminLayout = ({ children }: { children: ReactNode }) => {
       >
         <div className="p-4 border-b border-border">
           <Link to="/admin" className="flex items-center gap-2">
-            <Car className="h-7 w-7 text-primary" />
+            <img src={logo} alt="KLK Auto Car Logo" className="h-8 w-auto" />
             <span className="font-display text-lg font-bold">
               KLK <span className="text-primary">ADMIN</span>
             </span>

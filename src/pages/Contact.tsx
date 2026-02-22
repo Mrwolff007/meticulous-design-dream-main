@@ -44,7 +44,7 @@ const Contact = () => {
             {/* Info */}
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} className="space-y-6">
               <motion.div variants={fadeUp} custom={0}>
-                <Card className="border-border">
+                <Card className="glass-card">
                   <CardContent className="p-6 space-y-6">
                     <div className="flex items-start gap-4">
                       <div className="h-10 w-10 rounded-full bg-accent/10 flex items-center justify-center shrink-0">
@@ -78,7 +78,7 @@ const Contact = () => {
               </motion.div>
 
               <motion.div variants={fadeUp} custom={1}>
-                <Card className="border-border">
+              <Card className="glass-card">
                   <CardContent className="p-6">
                     <h3 className="font-display font-semibold mb-4 text-foreground">Suivez-nous</h3>
                     <div className="flex gap-3">
@@ -104,7 +104,7 @@ const Contact = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <Card className="border-border">
+              <Card className="glass-card">
                 <CardContent className="p-6">
                   <h3 className="font-display text-lg font-semibold mb-6 text-foreground">Envoyez-nous un message</h3>
                   <form onSubmit={handleSubmit} className="space-y-4">
@@ -129,7 +129,7 @@ const Contact = () => {
             transition={{ duration: 0.7 }}
             className="mt-16 max-w-5xl mx-auto"
           >
-            <Card className="border-border overflow-hidden">
+            <Card className="glass-card overflow-hidden">
               <CardContent className="p-0">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d217752.05295093498!2d-8.08368325!3d31.63461155!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xdafee8d96179e51%3A0x5950b6534f87adb8!2sMarrakech!5e0!3m2!1sfr!2sma!4v1700000000000!5m2!1sfr!2sma"

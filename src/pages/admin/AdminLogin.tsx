@@ -29,7 +29,7 @@ const AdminLogin = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-background p-4">
-      <Card className="w-full max-w-md border-border">
+      <Card className="w-full max-w-md glass-card">
         <CardHeader className="text-center">
           <div className="flex items-center justify-center gap-2 mb-4">
             <Car className="h-8 w-8 text-primary" />

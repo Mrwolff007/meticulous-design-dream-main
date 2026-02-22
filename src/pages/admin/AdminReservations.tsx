@@ -48,7 +48,7 @@ const AdminReservations = () => {
 
   return (
     <AdminLayout>
-      <Card className="border-border">
+      <Card className="glass-card">
         <CardHeader className="flex flex-row items-center justify-between">
           <CardTitle className="font-display text-lg">Réservations</CardTitle>
           <Select value={filter} onValueChange={setFilter}>

@@ -70,7 +70,7 @@ const Dashboard = () => {
       <div className="space-y-6">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {statCards.map((s) => (
-            <Card key={s.label} className="border-border">
+            <Card key={s.label} className="glass-card">
               <CardContent className="p-5">
                 <div className="flex items-center justify-between">
                   <div>
@@ -85,7 +85,7 @@ const Dashboard = () => {
           ))}
         </div>
 
-        <Card className="border-border">
+        <Card className="glass-card">
           <CardHeader>
             <CardTitle className="font-display text-lg">Réservations récentes</CardTitle>
           </CardHeader>

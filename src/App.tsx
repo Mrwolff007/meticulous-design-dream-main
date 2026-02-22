@@ -12,6 +12,7 @@ import Reservation from "./pages/Reservation";
 import Contact from "./pages/Contact";
 import About from "./pages/About";
 import Conditions from "./pages/Conditions";
+import SEOPage from "./pages/SEOPage";
 import NotFound from "./pages/NotFound";
 import AdminLogin from "./pages/admin/AdminLogin";
 import Dashboard from "./pages/admin/Dashboard";
@@ -34,6 +35,7 @@ const AnimatedRoutes = () => {
         <Route path="/contact" element={<Contact />} />
         <Route path="/a-propos" element={<About />} />
         <Route path="/conditions" element={<Conditions />} />
+        <Route path="/seo/:slug" element={<SEOPage />} />
         <Route path="/admin/login" element={<AdminLogin />} />
         <Route path="/admin" element={<AdminGuard><Dashboard /></AdminGuard>} />
         <Route path="/admin/vehicules" element={<AdminGuard><AdminVehicles /></AdminGuard>} />

@@ -427,7 +427,7 @@ const Index = () => {
                 variants={scaleUp}
                 whileHover={{ y: -6 }}
               >
-                <Card className="text-center p-6 border-border hover:border-accent/30 transition-all duration-300 group">
+                <Card className="text-center p-6 glass-card hover:border-accent/30 transition-all duration-300 group">
                   <motion.div
                     className="h-14 w-14 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-4"
                     whileHover={{ scale: 1.2, rotate: 5 }}
