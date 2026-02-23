@@ -8,7 +8,6 @@ import { Shield, MapPin, Clock, Star, ChevronRight, Fuel, Users, Settings2, Chev
 import { supabase } from "@/integrations/supabase/client";
 import Layout from "@/components/Layout";
 import ParallaxSection from "@/components/ParallaxSection";
-import VehicleCarousel3D from "@/components/VehicleCarousel3D";
 import WhyChooseUsSection from "@/components/WhyChooseUsSection";
 
 interface Vehicle {
@@ -367,7 +366,59 @@ const Index = () => {
             </motion.div>
           </motion.div>
 
-          <VehicleCarousel3D vehicles={vehicles} />
+          {/* Vehicles Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {vehicles.slice(0, 3).map((vehicle, i) => (
+              <motion.div
+                key={vehicle.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                whileHover={{ y: -8 }}
+              >
+                <Card className="group overflow-hidden glass-card hover:border-accent/50 transition-all duration-300 hover:shadow-lg hover:shadow-accent/20">
+                  <div className="aspect-video bg-secondary relative overflow-hidden">
+                    <img
+                      src={vehicle.image_url || "/placeholder.svg"}
+                      alt={`${vehicle.model} ${vehicle.color}`}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="absolute top-3 right-3">
+                      <span className={`px-3 py-1 rounded-full text-xs font-medium backdrop-blur-sm ${
+                        vehicle.available ? "bg-green-500/20 text-green-400 border border-green-500/30" : "bg-red-500/20 text-red-400 border border-red-500/30"
+                      }`}>
+                        {vehicle.available ? "Disponible" : "Loué"}
+                      </span>
+                    </div>
+                  </div>
+                  <CardContent className="p-5">
+                    <div className="flex items-center justify-between mb-3">
+                      <h3 className="font-display text-lg font-semibold text-foreground">{vehicle.model}</h3>
+                      <span className="text-sm text-muted-foreground">{vehicle.color}</span>
+                    </div>
+                    <div className="flex items-center gap-3 text-xs text-muted-foreground mb-4">
+                      <span className="flex items-center gap-1"><Fuel className="h-3 w-3" />{vehicle.fuel}</span>
+                      <span className="flex items-center gap-1"><Settings2 className="h-3 w-3" />{vehicle.transmission}</span>
+                      <span className="flex items-center gap-1"><Users className="h-3 w-3" />{vehicle.seats}p</span>
+                    </div>
+                    <div className="flex items-center justify-between pt-3 border-t border-border">
+                      <div>
+                        <p className="text-2xl font-display font-bold text-foreground">{vehicle.price_per_day}€</p>
+                        <p className="text-xs text-muted-foreground">/jour</p>
+                      </div>
+                      <Button asChild size="sm" className="bg-accent text-accent-foreground hover:bg-accent/90">
+                        <Link to={`/reservation?vehicle=${vehicle.id}`}>Réserver</Link>
+                      </Button>
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}

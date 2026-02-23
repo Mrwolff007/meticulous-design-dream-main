@@ -4,8 +4,10 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
+import { useEffect, useState } from "react";
 import { AuthProvider } from "@/hooks/useAuth";
 import ScrollToTop from "@/components/ScrollToTop";
+import AppSpinner from "@/components/AppSpinner";
 import Index from "./pages/Index";
 import Vehicules from "./pages/Vehicules";
 import Reservation from "./pages/Reservation";
@@ -47,19 +49,50 @@ const AnimatedRoutes = () => {
   );
 };
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <AuthProvider>
-          <ScrollToTop />
-          <AnimatedRoutes />
-        </AuthProvider>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
-);
+const App = () => {
+  const [showSpinner, setShowSpinner] = useState(true);
+  const [progress, setProgress] = useState(0);
+
+  useEffect(() => {
+    // Simulate loading progress
+    const progressInterval = setInterval(() => {
+      setProgress((prev) => {
+        if (prev >= 90) return 90;
+        return prev + Math.random() * 30;
+      });
+    }, 300);
+
+    // Hide spinner after page is fully loaded
+    const timer = setTimeout(() => {
+      setProgress(100);
+      setTimeout(() => {
+        setShowSpinner(false);
+      }, 500);
+    }, 2000);
+
+    return () => {
+      clearInterval(progressInterval);
+      clearTimeout(timer);
+    };
+  }, []);
+
+  return (
+    <>
+      <AppSpinner isVisible={showSpinner} progress={progress} />
+      <QueryClientProvider client={queryClient}>
+        <TooltipProvider>
+          <Toaster />
+          <Sonner />
+          <BrowserRouter>
+            <AuthProvider>
+              <ScrollToTop />
+              <AnimatedRoutes />
+            </AuthProvider>
+          </BrowserRouter>
+        </TooltipProvider>
+      </QueryClientProvider>
+    </>
+  );
+};
 
 export default App;

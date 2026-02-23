@@ -25,23 +25,33 @@ const LoadingSpinner = ({ onComplete }: { onComplete: () => void }) => {
       initial={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
-      className="fixed inset-0 bg-background flex items-center justify-center z-[9999]"
+      className="fixed inset-0 bg-gradient-to-br from-background via-background to-secondary/20 backdrop-blur-sm flex items-center justify-center z-[9999]"
     >
       <div className="flex flex-col items-center gap-8">
-        {/* Logo with rotation */}
-        <motion.div
-          animate={{ rotate: 360 }}
-          transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-          className="relative"
-        >
-          <div className="w-24 h-24 md:w-32 md:h-32 rounded-full border-4 border-accent/20 border-t-accent shadow-lg flex items-center justify-center bg-accent/5">
-            {/* KLK Logo Text */}
-            <div className="text-center">
-              <p className="font-display font-bold text-lg md:text-2xl text-accent">KLK</p>
-              <p className="text-xs md:text-sm text-muted-foreground">AUTO CAR</p>
-            </div>
-          </div>
-        </motion.div>
+        {/* Logo Container with Glow */}
+        <div className="relative inline-block">
+          {/* Glow Effect */}
+          <div className="absolute inset-0 rounded-full bg-accent/20 blur-2xl animate-pulse"></div>
+          
+          {/* Logo Image with rotation */}
+          <motion.div
+            animate={{ rotate: 360 }}
+            transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+            className="relative z-10"
+          >
+            <img
+              src="/images/logoklkautocar.png"
+              alt="KLK Auto Car Logo"
+              className="h-20 w-20 md:h-24 md:w-24 rounded-full"
+            />
+          </motion.div>
+        </div>
+
+        {/* KLK Logo Text */}
+        <div className="text-center">
+          <h3 className="font-display text-3xl md:text-4xl font-bold text-foreground">KLK</h3>
+          <p className="text-base md:text-lg text-accent font-semibold tracking-wider">AUTO CAR</p>
+        </div>
 
         {/* Progress Section */}
         <div className="w-64 md:w-72 space-y-3">

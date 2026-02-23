@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Car } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
 
@@ -38,12 +38,13 @@ const Navbar = ({ transparent = false }: { transparent?: boolean }) => {
       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
     >
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16 md:h-20">
-          <Link to="/" className="flex items-center gap-2">
-            <Car className="h-8 w-8 text-accent" />
-            <span className="font-display text-xl font-bold tracking-tight text-foreground">
-              KLK <span className="text-accent">AUTO</span> CAR
-            </span>
+        <div className="flex items-center justify-between h-24 md:h-28">
+          <Link to="/" className="flex items-center">
+            <img 
+              src="/images/logoklkautocar.png" 
+              alt="KLK AUTO CAR Logo" 
+              className="h-20 w-20 rounded-lg"
+            />
           </Link>
 
           {/* Desktop */}

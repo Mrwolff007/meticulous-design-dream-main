@@ -15,6 +15,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import { motion, AnimatePresence } from "framer-motion";
 import Layout from "@/components/Layout";
+import AppSpinner from "@/components/AppSpinner";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Calendar as CalendarComponent } from "@/components/ui/calendar";
@@ -98,6 +99,7 @@ const Reservation = () => {
   const [cinVersoFile, setCinVersoFile] = useState<File | null>(null);
   const [licensePhotoFile, setLicensePhotoFile] = useState<File | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitProgress, setSubmitProgress] = useState(0);
   const [isComplete, setIsComplete] = useState(false);
   const [returnSame, setReturnSame] = useState(true);
 
@@ -196,6 +198,7 @@ const Reservation = () => {
     }
 
     setIsSubmitting(true);
+    setSubmitProgress(10);
     try {
       const { data: client, error: clientError } = await supabase
         .from("clients")
@@ -213,6 +216,7 @@ const Reservation = () => {
         .single();
 
       if (clientError) throw clientError;
+      setSubmitProgress(25);
 
       let cinRectoUrl: string | null = null;
       let cinVersoUrl: string | null = null;
@@ -221,6 +225,8 @@ const Reservation = () => {
       if (cinRectoFile) cinRectoUrl = await uploadDocument(cinRectoFile, "cin_recto", client.id);
       if (cinVersoFile) cinVersoUrl = await uploadDocument(cinVersoFile, "cin_verso", client.id);
       if (licensePhotoFile) licensePhotoUrl = await uploadDocument(licensePhotoFile, "license_photo", client.id);
+      
+      setSubmitProgress(50);
 
       const { error: reservationError } = await supabase
         .from("reservations")
@@ -241,6 +247,7 @@ const Reservation = () => {
         });
 
       if (reservationError) throw reservationError;
+      setSubmitProgress(75);
 
       // 4. WhatsApp: Préparer le message professionnel détaillé
       const cinRectoPhotoUrl = cinRectoUrl ? `CIN Recto: ${cinRectoUrl}` : "";
@@ -302,9 +309,12 @@ const Reservation = () => {
 
       // Envoyer sur WhatsApp avec le numéro de l'entreprise (modifié selon demande)
       window.open(`https://wa.me/212619700592?text=${whatsappMessage}`, "_blank");
+      setSubmitProgress(100);
 
       setIsComplete(true);
-      toast.success("Réservation envoyée !");
+      setTimeout(() => {
+        toast.success("Réservation envoyée !");
+      }, 500);
     } catch (err) {
       toast.error("Erreur.");
     } finally {
@@ -328,7 +338,9 @@ const Reservation = () => {
   }
 
   return (
-    <Layout>
+    <>
+      <AppSpinner isVisible={isSubmitting} progress={submitProgress} />
+      <Layout>
       <section className="py-8 md:py-16 min-h-screen px-4">
         <div className="container mx-auto max-w-4xl">
           {/* Header */}
@@ -909,7 +921,8 @@ const Reservation = () => {
           </Form>
         </div>
       </section>
-    </Layout>
+      </Layout>
+    </>
   );
 };
 

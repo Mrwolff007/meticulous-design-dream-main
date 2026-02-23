@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Car, Instagram, Facebook, Youtube } from "lucide-react";
+import { Instagram, Facebook, Youtube } from "lucide-react";
 import { seoPages } from "@/data/seoPages";
 
 const Footer = () => {
@@ -15,8 +15,12 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
           {/* Brand */}
           <div className="space-y-4">
-            <div className="flex items-center gap-2">
-              <Car className="h-6 w-6 text-accent" />
+            <div className="flex items-center gap-3">
+              <img 
+                src="/images/logoklkautocar.png" 
+                alt="KLK AUTO CAR Logo" 
+                className="h-14 w-14 rounded-lg"
+              />
               <span className="font-display text-lg font-bold text-foreground">
                 KLK <span className="text-accent">AUTO</span> CAR
               </span>
